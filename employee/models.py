@@ -9,3 +9,6 @@ class Employee(models.Model):
     telephone = models.CharField(max_length=31)
     email = models.CharField(max_length=255)
     job = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.cpf
