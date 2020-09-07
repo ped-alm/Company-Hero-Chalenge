@@ -1,6 +1,6 @@
 from django.core.exceptions import ValidationError
-from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer
 
 from company.models import Company
 from employee.models import Employee

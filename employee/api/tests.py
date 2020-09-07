@@ -70,5 +70,3 @@ class PersonViewTestCase(APITestCase):
 
         response = self.client.post('/employees/', dto, format='json')
         self.assertContains(response, 'employee relationship already exists', status_code=status.HTTP_400_BAD_REQUEST)
-
-
