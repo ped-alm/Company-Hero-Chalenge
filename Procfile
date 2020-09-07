@@ -1,1 +1,1 @@
-web: gunicorn project.wsgi
+web: gunicorn company_hero_challenge.wsgi
