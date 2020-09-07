@@ -10,11 +10,18 @@ class Employee(models.Model):
     job = models.CharField(max_length=255)
 
     def validate_unique(self, exclude=None):
-        if self.pk is None:
-            if Employee.objects.filter(person__id=self.person.id, company__id=self.company.id).exists():
-                raise ValidationError("item already exists")
+        filter_result = Employee.objects.filter(person__id=self.person.id, company__id=self.company.id)
+
+        if self.pk:
+            filter_result.exclude(pk=self.pk)
+        if filter_result.exists():
+            raise ValidationError("employee relationship exists")
 
         super(Employee, self).validate_unique(exclude=exclude)
+
+    def save(self, *args, **kwargs):
+        self.validate_unique()
+        super(Employee, self).save(*args, **kwargs)
 
     def __str__(self):
         return f'{self.person.cpf}-{self.company.name}'
