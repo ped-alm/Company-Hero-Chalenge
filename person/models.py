@@ -6,7 +6,7 @@ class Person(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     birth_date = models.DateField(null=True, blank=True)
     rg = models.CharField(max_length=31, null=True, blank=True)
-    cpf = models.CharField(max_length=31)
+    cpf = models.CharField(max_length=31, unique=True)
     telephone = models.CharField(max_length=31, null=True, blank=True)
 
     class Meta:

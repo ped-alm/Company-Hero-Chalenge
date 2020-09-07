@@ -4,7 +4,7 @@ from django.db import models
 class Company(models.Model):
     name = models.CharField(max_length=255)
     trading_name = models.CharField(max_length=255, null=True, blank=True)
-    cnpj = models.CharField(max_length=31)
+    cnpj = models.CharField(max_length=31, unique=True)
     telephone = models.CharField(max_length=31, null=True, blank=True)
 
     class Meta:
