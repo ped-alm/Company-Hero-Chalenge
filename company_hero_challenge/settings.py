@@ -25,7 +25,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['https://company-hero-challenge.herokuapp.com/']
+ALLOWED_HOSTS = ['company-hero-challenge.herokuapp.com']
 
 # Application definition
 
