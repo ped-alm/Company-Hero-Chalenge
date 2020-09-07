@@ -3,7 +3,7 @@
 ## Run Project
 ### Requirements
 
-To run the project is necessary to have ** Python 3 ** installed on the machine along with ** pip **
+To run the project is necessary to have **Python 3** installed on the machine along with **pip**
 It can be found at https://www.python.org/downloads/
 (Remember to add Python to PATH)
 
@@ -31,8 +31,8 @@ pip install -r requirements-dev.txt
 
 ### Environment configuration
 
-Copy the ** .env_example ** file at the root of the project and create a new ** .env ** file.
-Make sure that ** DEBUG ** is set ** True ** . The ** SECRET_KEY ** can be any.   
+Copy the **.env_example** file at the root of the project and create a new **.env** file.
+Make sure that **DEBUG** is set **True** . The **SECRET_KEY** can be any.   
 
 ### Execution
 
