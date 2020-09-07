@@ -15,7 +15,7 @@ class Employee(models.Model):
         if self.pk:
             filter_result.exclude(pk=self.pk)
         if filter_result.exists():
-            raise ValidationError("employee relationship exists")
+            raise ValidationError("employee relationship already exists")
 
         super(Employee, self).validate_unique(exclude=exclude)
 
