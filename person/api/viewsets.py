@@ -1,4 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
+
 from person.models import Person
 from .serializers import PersonSerializer, PersonUpdateSerializer
 
