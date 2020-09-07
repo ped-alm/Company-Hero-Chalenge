@@ -44,7 +44,7 @@ class PersonViewTestCase(APITestCase):
         }
 
         response = self.client.post('/persons/', dto, format='json')
-        self.assertContains(response, 'cpf already registered', status_code=status.HTTP_400_BAD_REQUEST)
+        self.assertContains(response, 'person with this cpf already exists', status_code=status.HTTP_400_BAD_REQUEST)
 
     def test_person_update(self):
         """Person should be updated successfully when no errors are found"""

@@ -5,4 +5,10 @@ from company.models import Company
 class CompanySerializer(ModelSerializer):
     class Meta:
         model = Company
-        fields = ('name', 'trading_name', 'cnpj', 'telephone')
+        fields = ('id', 'name', 'trading_name', 'cnpj', 'telephone')
+
+
+class CompanyUpdateSerializer(ModelSerializer):
+    class Meta:
+        model = Company
+        fields = ('name', 'trading_name', 'telephone')

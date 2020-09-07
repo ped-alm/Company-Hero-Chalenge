@@ -15,12 +15,7 @@ class PersonSerializer(ModelSerializer):
         fields = ('id', 'first_name', 'last_name', 'email', 'rg', 'cpf', 'telephone')
 
     def create(self, validated_data):
-        cpf = validated_data['cpf']
-
-        if User.objects.filter(username=cpf).exists():
-            raise serializers.ValidationError("cpf already registered")
-
-        user = User.objects.create_user(username=cpf, email=validated_data['user']['email'],
+        user = User.objects.create_user(username=validated_data['cpf'], email=validated_data['user']['email'],
                                         first_name=validated_data['user']['first_name'],
                                         last_name=validated_data['user']['last_name'])
         user.set_unusable_password()
