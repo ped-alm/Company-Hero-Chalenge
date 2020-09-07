@@ -5,6 +5,26 @@ Challenge done as a step in the Company Hero selection process. The project was 
 
 The published application can be accessed through Heroku at https://company-hero-challenge.herokuapp.com/
 
+## Proposed Solution
+
+Following the challenge requirements I have created 3 models.
+
+Person -> An enriched wrapper for the Django.User representing the platform users.  
+Company -> A model representing the company.  
+Employee -> The representation of the many-to-many relationship between the Person and Company.
+
+The Person and Company have the full CRUD implemented. The Employee was limited to not be updatable to simplify implementation.
+The Employee.job was not normalized for the same motives.
+
+The route to access all the company data is http:<host>/companies/<company_id>/full_company/  
+The route to access all the person data is http:<host>/persons/<person_id>/full_person/  
+
+I used the person id to access the second route instead of the username because I thought it would be more semantic.
+
+## Some Problems
+
+Due to time restriction I couldn't configure the CI/CD proccess and some tests were skipped.
+
 ## Run Project
 ### Requirements
 
