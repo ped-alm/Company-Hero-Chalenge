@@ -59,4 +59,6 @@ class PersonUpdateSerializer(ModelSerializer):
         if rg:
             instance.rg = rg
 
+        instance.user.save()
+        instance.save()
         return instance

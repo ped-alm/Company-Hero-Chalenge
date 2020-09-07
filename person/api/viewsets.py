@@ -10,4 +10,3 @@ class PersonViewSet(ModelViewSet):
         if self.action in ['update', 'partial_update']:
             return PersonUpdateSerializer
         return PersonSerializer
-

@@ -7,7 +7,6 @@ class PersonTestCase(TestCase):
     def setUp(self):
         user = User.objects.create_user(id=1, username='95558428090', email='test@mail.com',
                                         first_name='Test', last_name='Tester')
-        user.set_unusable_password()
         Person.objects.create(id=1, user=user, birth_date='2020-01-01', rg='470160457',
                               cpf='95558428090', telephone='31978456512')
 
