@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.db import models
+from django.db import models, transaction
 
 
 class Person(models.Model):
@@ -17,6 +17,7 @@ class Person(models.Model):
             )
         ]
 
+    @transaction.atomic
     def delete(self, using=None, keep_parents=False):
         self.user.delete()
         super(Person, self).delete(using=using, keep_parents=keep_parents)
