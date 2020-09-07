@@ -1,5 +1,10 @@
 # Company-Hero-Chalenge
 
+Challenge done as a step in the Company Hero selection process. The project was created using the frameworks
+**Django** and **Django Rest Framework** on **Python 3**
+
+The published application can be accessed through Heroku at https://company-hero-challenge.herokuapp.com/
+
 ## Run Project
 ### Requirements
 
