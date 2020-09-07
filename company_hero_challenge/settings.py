@@ -120,4 +120,9 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = BASE_DIR.joinpath('staticfiles').__str__()
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 30
+}
+
 django_heroku.settings(locals())
