@@ -11,7 +11,7 @@ class PersonSerializer(ModelSerializer):
 
     class Meta:
         model = Person
-        fields = ('first_name', 'last_name', 'email', 'rg', 'cpf', 'telephone')
+        fields = ('id', 'first_name', 'last_name', 'email', 'rg', 'cpf', 'telephone')
 
     def create(self, validated_data):
         cpf = validated_data['cpf']

@@ -17,5 +17,9 @@ class Person(models.Model):
             )
         ]
 
+    def delete(self, using=None, keep_parents=False):
+        self.user.delete()
+        super(Person, self).delete(using=using, keep_parents=keep_parents)
+
     def __str__(self):
         return self.user.username
