@@ -18,10 +18,12 @@ from django.urls import path, include
 from rest_framework import routers
 from employee.api.viewsets import EmployeeViewSet
 from company.api.viewsets import CompanyViewSet
+from person.api.viewsets import PersonViewSet
 
 router = routers.DefaultRouter()
 router.register(r'employees', EmployeeViewSet)
 router.register(r'companies', CompanyViewSet)
+router.register(r'persons', PersonViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
