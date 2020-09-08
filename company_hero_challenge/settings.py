@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-from decouple import config
+
 import django_heroku
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,8 +80,7 @@ from dj_database_url import parse as dburl
 
 default_dburl = 'sqlite:///' + BASE_DIR.joinpath('db.sqlite3').__str__()
 
-DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
-
+DATABASES = {'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

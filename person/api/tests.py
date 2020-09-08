@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.test import APITestCase, APIClient
 
+from company.models import Company
+from employee.models import Employee
 from person.models import Person
 
 
@@ -87,3 +89,23 @@ class PersonViewTestCase(APITestCase):
 
         person = Person.objects.get(cpf='95558428090')
         self.assertEqual(dto['first_name'], person.user.first_name)
+
+    def test_person_full_person(self):
+        """Should return the correct full Person model when no errors are found"""
+        user = User.objects.create_user(id=1, username='95558428090', email='test@mail.com',
+                                        first_name='Test', last_name='Tester')
+        person = Person.objects.create(id=1, user=user, birth_date='2020-01-01', rg='470160457',
+                                       cpf='95558428090', telephone='31978456512')
+        Employee.objects.create(company=Company.objects.create(id=1), person=person)
+
+        response = self.client.get('/persons/1/full_person/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        self.assertEqual(response.data['first_name'], person.user.first_name)
+        self.assertEqual(response.data['last_name'], person.user.last_name)
+        self.assertEqual(response.data['email'], person.user.email)
+        self.assertEqual(response.data['rg'], person.rg)
+        self.assertEqual(response.data['cpf'], person.cpf)
+        self.assertEqual(response.data['telephone'], person.telephone)
+        self.assertEqual(response.data['id'], person.id)
+        self.assertEqual(response.data['companies'], [1])
