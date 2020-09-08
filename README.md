@@ -22,7 +22,7 @@ I used the person id to access the second route instead of the username because 
 
 ## Some Problems
 
-Due to time restriction and some problems that I have encountered trying to publish on Heroku I couldn't configure the CI/CD proccess, some tests were skipped, and fields with rules like 'cpf' and 'rg' were not validated.
+Due to time restriction and some problems that I have encountered trying to publish on Heroku I couldn't configure the Swagger, CI/CD proccess, some tests were skipped, and fields with rules like 'cpf' and 'rg' were not validated.
 
 ## Run Project
 ### Requirements
